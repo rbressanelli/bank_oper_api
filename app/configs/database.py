@@ -9,3 +9,5 @@ def init_app(app: Flask):
     app.db = db
 
     from app.models.accounts_model import AccountModel
+    from app.models.user_model import UserModel
+    from app.models.transaction_model import TransactionModel
