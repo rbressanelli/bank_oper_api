@@ -1,6 +1,8 @@
-from sqlalchemy import Column, Float, ForeignKey, String, DateTime, Integer, Boolean
 from dataclasses import dataclass
-from sqlalchemy.orm import relationship, backref
+
+from sqlalchemy import (Boolean, Column, DateTime, Float, ForeignKey, Integer,
+                        String)
+from sqlalchemy.orm import backref, relationship
 
 from app.configs.database import db
 
@@ -18,17 +20,15 @@ class AccountModel(db.Model):
 
     __tablename__ = "accounts"
 
-    account_id = Column(Integer, primary_key=True)    
+    account_id = Column(Integer, primary_key=True)
     balance = Column(Float, nullable=True)
     daily_withdraw_limit = Column(Float, nullable=False)
     is_active = Column(Boolean, default=True)
     account_type = Column(Integer, nullable=False)
     created_at = Column(DateTime, nullable=True)
-    
-    
-    user_id = Column(Integer, ForeignKey("users.user_id"), nullable=False)
-    
-    users = relationship("UserModel", backref=backref("user", useList=False))
-    
-    transactions = relationship("TransactionModel", backref=backref("accounts", useList=True))
-    
+
+    user_id = Column(Integer, ForeignKey("users.user_id"), nullable=False, unique=True)
+
+    user = relationship("UserModel", backref=backref("account", uselist=False))
+
+    transactions = relationship("TransactionModel", backref="account", uselist=True)
