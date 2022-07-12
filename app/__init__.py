@@ -1,8 +1,8 @@
-from flask import Flask
 from environs import Env
+from flask import Flask
 
-from app.configs import database, migrations
 from app import routes
+from app.configs import database, migrations
 
 env = Env()
 env.read_env()

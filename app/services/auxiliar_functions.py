@@ -1,5 +1,6 @@
-from werkzeug.exceptions import BadRequest
 from datetime import datetime
+
+from werkzeug.exceptions import BadRequest
 
 
 def date_maker():
