@@ -1,0 +1,2 @@
+class WithdrawLimitError(Exception):
+    pass
