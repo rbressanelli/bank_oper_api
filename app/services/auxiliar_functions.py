@@ -1,7 +1,10 @@
-from datetime import datetime
-
-from werkzeug.exceptions import BadRequest
+from datetime import date, datetime
 
 
 def date_maker():
-    return datetime.now()
+    return date.today()
+
+
+def only_date(data):
+    temp = datetime.strftime(data, "%Y-%m-%d")
+    return datetime.strptime(temp, "%Y-%m-%d").date()

@@ -6,7 +6,6 @@ from sqlalchemy.orm.session import Session
 from werkzeug.exceptions import NotFound
 
 from app.models.accounts_model import AccountModel
-from app.models.user_model import UserModel
 from app.services.auxiliar_functions import date_maker
 
 
@@ -22,9 +21,9 @@ def create_account(user_id: str):
         new_account_data = AccountModel(**new_account)
         session.add(new_account_data)
         session.commit()
-    except IntegrityError as e:
-        print(e.args)
-        return jsonify(e.args), HTTPStatus.BAD_REQUEST
+
+    except IntegrityError as e:        
+        return jsonify(str(e.orig))        
 
     new_account_registered = AccountModel.query.filter_by(
         user_id=new_account["user_id"]

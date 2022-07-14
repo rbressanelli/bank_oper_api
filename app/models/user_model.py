@@ -10,7 +10,7 @@ class UserModel(db.Model):
 
     user_id: int
     name: str
-    cpf: int
+    cpf: str
     birthDate: DateTime
 
     __tablename__ = "users"

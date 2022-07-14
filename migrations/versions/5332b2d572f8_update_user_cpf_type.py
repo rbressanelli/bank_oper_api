@@ -8,8 +8,6 @@ Create Date: 2022-07-12 09:16:40.588927
 import sqlalchemy as sa
 from alembic import op
 
-
-
 # revision identifiers, used by Alembic.
 revision = "5332b2d572f8"
 down_revision = None
@@ -57,13 +55,13 @@ def upgrade():
         sa.PrimaryKeyConstraint("transaction_id"),
     )
     # ### end Alembic commands ###
-    
-    
-    op.bulk_insert(user_table,
+
+    op.bulk_insert(
+        user_table,
         [
-            {'name': 'Roberto', 'cpf': '12345678900', 'birthDate': '2001/01/15'},
-            {'name': 'Simone', 'cpf': '12345678999', 'birthDate': '1996/07/25'},
-        ]               
+            {"name": "Roberto", "cpf": "12345678900", "birthDate": "2001/01/15"},
+            {"name": "Simone", "cpf": "12345678999", "birthDate": "1996/07/25"},
+        ],
     )
 
 
@@ -73,5 +71,3 @@ def downgrade():
     op.drop_table("accounts")
     op.drop_table("users")
     # ### end Alembic commands ###
-
-
