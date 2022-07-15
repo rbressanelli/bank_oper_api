@@ -22,19 +22,19 @@ As informações dos usuários são as seguintes:
 
 Endpoints:
 
-OPERAÇÕES REFERENTAS A CONTA CORRENTE:
+OPERAÇÕES REFERENTES A CONTA CORRENTE:
 
-POST - /api/accounts/create/<user_id> - criação da conta
+POST - /api/accounts/create/&ltuser_id> - criação da conta
 GET  - /api/accounts - listagem das contas correntes criadas
-DELETE - /api/accounts/<account_id> - deleção da conta
-PUT - /api/accounts/<account_id>/block - bloqueio da conta
+DELETE - /api/accounts/&ltaccount_id> - deleção da conta
+PUT - /api/accounts/&ltaccount_id>/block - bloqueio da conta
 
 TRANSAÇÕES DE CONTA
 
-POST - /api/transactions/create/<account_id>/deposit - criação de transação de depósito
-GET - /api/transactions/<account_id>/balance - retorna o saldo da conta
-POST - /api/transactions/create/<account_id>/withdraw - saque na conta
-GET - /api/transactions/<account_id>/extract - extrato das transações efetuadas na conta
+POST - /api/transactions/create/&ltaccount_id>/deposit - criação de transação de depósito
+GET - /api/transactions/&ltaccount_id>/balance - retorna o saldo da conta
+POST - /api/transactions/create/&ltaccount_id>/withdraw - saque na conta
+GET - /api/transactions/&ltaccount_id>/extract - extrato das transações efetuadas na conta
 
 
 Descrição dos endpoints da aplicação:
